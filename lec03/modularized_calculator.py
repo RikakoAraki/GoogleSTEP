@@ -105,6 +105,14 @@ def evaluate_mul_div(tokens):
         index += 1
     return new_tokens
 
+# 計算する関数
+# |tokens| = 式の文字列をトークン化したもの
+# |ans| = 式の解
+def evaluate(tokens):
+    cal_mul_div = evaluate_mul_div(tokens)
+    ans = evaluate_add_sub(cal_mul_div)
+    return ans
+
 
 def test(line):
     tokens = tokenize(line)
